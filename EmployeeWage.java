@@ -6,7 +6,8 @@ public class EmployeeWage {
         
         final int wagePerHour = 20;
         final int fullDayHour = 8;
-
+        final int partTimeHour = 4;
+        
         System.out.println("WELCOME TO EMPLOYEE WAGE COMPUTATION PROGRAM\n");
         
         Random rand = new Random();
