@@ -6,6 +6,13 @@ public class EmployeeWage {
         
         System.out.println("WELCOME TO EMPLOYEE WAGE COMPUTATION PROGRAM\n");
         
+        Random random = new Random();
+        boolean isPresent = random.nextBoolean();
+        if (isPresent) {
+            System.out.println("Employee is Present");
+        }else{
+            System.out.println("Employee is Absent");
+        }
     }
     
 }
