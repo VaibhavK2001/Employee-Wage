@@ -1,5 +1,11 @@
 import java.util.Random;
 
+interface ComputeEmpWage {
+
+    public void addCompanyEmpWage(String company, int wagePerHour, int noOfDays, int workingHours);
+    public void computeWage();
+}
+
 class CompanyEmpWage {
 
     public final String company;
@@ -26,7 +32,7 @@ class CompanyEmpWage {
     
 }
 
-public class EmployeeWage {
+public class EmployeeWage implements ComputeEmpWage{
 
     int noOfCompany = 0;
     CompanyEmpWage[] companyEmpWageArray;
