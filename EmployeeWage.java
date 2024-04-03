@@ -5,7 +5,7 @@ public class EmployeeWage {
     static final int fullDayHour = 8;
     static final int partTimeHour = 4;
     
-    public static void calculateWage(String company,int wagePerHour, int noOfDays, int workingHours){
+    public void calculateWage(String company,int wagePerHour, int noOfDays, int workingHours){
         
         int totalWage = 0;
         int totalDays = 0;
@@ -50,9 +50,15 @@ public class EmployeeWage {
     public static void main(String[] args) {
 
         System.out.println("WELCOME TO EMPLOYEE WAGE COMPUTATION PROGRAM\n");
-        calculateWage("TATA",25,25,125);
-        calculateWage("RELIANCE",30,30,140);
-        calculateWage("QK",35,25,130);
+        
+        EmployeeWage TATA = new EmployeeWage();
+        TATA.calculateWage("TATA",25,25,125);
+        
+        EmployeeWage RELIANCE = new EmployeeWage();
+        RELIANCE.calculateWage("RELIANCE",30,30,140);
+        
+        EmployeeWage QualtiyKiosk = new EmployeeWage();
+        QualtiyKiosk.calculateWage("QK",35,25,130);
     }
     
 }
