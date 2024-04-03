@@ -2,13 +2,10 @@ import java.util.Random;
 
 public class EmployeeWage {
 
-    static final int wagePerHour = 20;
     static final int fullDayHour = 8;
     static final int partTimeHour = 4;
     
-    public static void calculateWage(){
-
-        System.out.println("WELCOME TO EMPLOYEE WAGE COMPUTATION PROGRAM\n");
+    public static void calculateWage(String company,int wagePerHour, int noOfDays, int workingHours){
         
         int totalWage = 0;
         int totalDays = 0;
@@ -18,7 +15,7 @@ public class EmployeeWage {
 
         Random random = new Random();
         
-        while (totalDays < 20 && totalHours < 100) {
+        while (totalDays < noOfDays && totalHours < workingHours) {
             totalDays++;
             int attendance = random.nextInt(3);
             switch (attendance) {
@@ -40,10 +37,11 @@ public class EmployeeWage {
             }
         }
         
+        System.out.println("Company : "+company);
         System.out.println("Total Monthly Wage : $"+totalWage);
         System.out.println("Total Full Time Days : "+full);
         System.out.println("Total Part Time Days : "+part);
-        System.out.println("Total Absent Days : "+(20-(full+part)));
+        System.out.println("Total Absent Days : "+(noOfDays-(full+part)));
         System.out.println("Total Working Days : "+totalDays);
         System.out.println("Total Working Hours : "+totalHours);
         System.out.println();
@@ -51,7 +49,10 @@ public class EmployeeWage {
     }
     public static void main(String[] args) {
 
-        calculateWage();
+        System.out.println("WELCOME TO EMPLOYEE WAGE COMPUTATION PROGRAM\n");
+        calculateWage("TATA",25,25,125);
+        calculateWage("RELIANCE",30,30,140);
+        calculateWage("QK",35,25,130);
     }
     
 }
