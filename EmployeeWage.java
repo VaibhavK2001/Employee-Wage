@@ -10,26 +10,29 @@ public class EmployeeWage {
 
         System.out.println("WELCOME TO EMPLOYEE WAGE COMPUTATION PROGRAM\n");
         
-        int dailyWage = 0;
+        int totalWage = 0;
+        int totalDays = 0;
         Random random = new Random();
-        int attendance = random.nextInt(3);
-        
-        switch (attendance) {
-            case 0:
-                System.out.println("Employee is Absent");
-                break;
-            
-            case 1:
-                System.out.println("Employee is Present");
-                dailyWage = fullDayHour * wagePerHour;
-                break;
 
-            case 2:
-                System.out.println("Employee is Part time present");
-                dailyWage = partTimeHour * wagePerHour;
-                break;
+        while (totalDays < 20) {
+            totalDays++;
+            int attendance = random.nextInt(3);
+            switch (attendance) {
+                case 0:
+                    totalWage += 0;
+                    break;
+                
+                case 1:
+                    totalWage += fullDayHour * wagePerHour;
+                    break;
+    
+                case 2:
+                    totalWage += partTimeHour * wagePerHour;
+                    break;
+            }
         }
-        System.out.println("Daily Wage : "+dailyWage);
+        
+        System.out.println("Total Wage for 20 Days: "+totalWage);
     }
     
 }
