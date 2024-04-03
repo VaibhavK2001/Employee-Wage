@@ -13,15 +13,21 @@ public class EmployeeWage {
         int dailyWage = 0;
         Random random = new Random();
         int attendance = random.nextInt(3);
-        if (attendance == 0) {
-            System.out.println("Employee is Absent");
-        }else if (attendance == 1) {
-            System.out.println("Employee is Present");
-            dailyWage = fullDayHour * wagePerHour;
-        }
-        else{
-            System.out.println("Employee is Part time present");
-            dailyWage = partTimeHour * wagePerHour;
+        
+        switch (attendance) {
+            case 0:
+                System.out.println("Employee is Absent");
+                break;
+            
+            case 1:
+                System.out.println("Employee is Present");
+                dailyWage = fullDayHour * wagePerHour;
+                break;
+
+            case 2:
+                System.out.println("Employee is Part time present");
+                dailyWage = partTimeHour * wagePerHour;
+                break;
         }
         System.out.println("Daily Wage : "+dailyWage);
     }
