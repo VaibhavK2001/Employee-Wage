@@ -1,4 +1,6 @@
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Random;
 
 interface ComputeEmpWage {
@@ -35,18 +37,20 @@ class CompanyEmpWage {
 
 public class EmployeeWage implements ComputeEmpWage{
 
-    int noOfCompany = 0;
     LinkedList<CompanyEmpWage> companyList;
+    Map<String, CompanyEmpWage> companyMap;
 
     
     
     public EmployeeWage() {
         companyList = new LinkedList<>();
+        companyMap = new HashMap<>();
     }
 
     public void addCompanyEmpWage(String company, int wagePerHour, int noOfDays, int workingHours){
         CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, wagePerHour, noOfDays, workingHours);
         companyList.add(companyEmpWage);
+        companyMap.put(company, companyEmpWage);
     }
 
     public void computeWage(){
@@ -54,6 +58,11 @@ public class EmployeeWage implements ComputeEmpWage{
             companyEmpWage.setEmpWage(this.calculateWage(companyEmpWage));
             System.out.println(companyEmpWage);
         }
+    }
+
+
+    public int getTotalWage(String company){
+        return companyMap.get(company).totalWage;
     }
 
 
@@ -106,6 +115,9 @@ public class EmployeeWage implements ComputeEmpWage{
         Obj1.addCompanyEmpWage("Samsung", 50, 25, 100);
         Obj1.addCompanyEmpWage("Google", 40, 30, 120);
         Obj1.computeWage();
+
+        System.out.println("Total wage for Samsung company : "+Obj1.getTotalWage("Samsung"));
+        System.out.println("Total wage for Google company : "+Obj1.getTotalWage("Google"));
     }
     
 }
