@@ -35,7 +35,6 @@ class CompanyEmpWage {
 
 public class EmployeeWage implements ComputeEmpWage{
 
-    int noOfCompany = 0;
     LinkedList<CompanyEmpWage> companyList;
 
     
@@ -64,6 +63,7 @@ public class EmployeeWage implements ComputeEmpWage{
         int totalHours = 0;
         int full = 0;
         int part = 0;
+        int dailyWage = 0;
 
         Random random = new Random();
         
@@ -79,16 +79,19 @@ public class EmployeeWage implements ComputeEmpWage{
                     totalWage += 8 * companyEmpWage.wagePerHour;
                     totalHours += 8;
                     full++;
+                    dailyWage = 8 * companyEmpWage.wagePerHour;
                     break;
-    
-                case 2:             // for part time
+                    
+                    case 2:             // for part time
                     totalWage += 4 * companyEmpWage.wagePerHour;
                     totalHours += 4;
+                    dailyWage = 4 * companyEmpWage.wagePerHour;
                     part++;
                     break;
             }
         }
 
+        System.out.println("Daily Wage : "+dailyWage);
         System.out.println("Total Full Time Days : "+full);
         System.out.println("Total Part Time Days : "+part);
         System.out.println("Total Absent Days : "+(companyEmpWage.noOfDays-(full+part)));
