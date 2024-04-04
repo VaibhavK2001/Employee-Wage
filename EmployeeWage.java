@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Random;
 
 interface ComputeEmpWage {
@@ -35,23 +36,23 @@ class CompanyEmpWage {
 public class EmployeeWage implements ComputeEmpWage{
 
     int noOfCompany = 0;
-    CompanyEmpWage[] companyEmpWageArray;
+    LinkedList<CompanyEmpWage> companyList;
 
     
     
     public EmployeeWage() {
-        companyEmpWageArray = new CompanyEmpWage[5];
+        companyList = new LinkedList<>();
     }
 
     public void addCompanyEmpWage(String company, int wagePerHour, int noOfDays, int workingHours){
-        companyEmpWageArray[noOfCompany] = new CompanyEmpWage(company, wagePerHour, noOfDays, workingHours);
-        noOfCompany++;
+        CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, wagePerHour, noOfDays, workingHours);
+        companyList.add(companyEmpWage);
     }
 
     public void computeWage(){
-        for (int i = 0; i < noOfCompany; i++) {
-            companyEmpWageArray[i].setEmpWage(this.calculateWage(companyEmpWageArray[i]));
-            System.out.println(companyEmpWageArray[i]);
+        for (CompanyEmpWage companyEmpWage : companyList) {
+            companyEmpWage.setEmpWage(this.calculateWage(companyEmpWage));
+            System.out.println(companyEmpWage);
         }
     }
 
